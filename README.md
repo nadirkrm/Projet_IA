@@ -1,17 +1,18 @@
 ## Projet_IA
-#Projet d'Introduction et Mathématique IA
 
-#Github:
+# Projet d'Introduction et Mathématique IA
+
+# Github:
 https://github.com/nadirkrm/Projet_IA
 
-#Rapport
+# Rapport
 Présenter une démo notre logiciel 
 Parler des 	
 
-#Base de données 
+# Base de données 
 https://grouplens.org/datasets/movielens/
 
-#database of IMDB:
+# database of IMDB:
 https://datasets.imdbws.com/
 
 
@@ -33,7 +34,7 @@ Tags :
 
 Mots-clés ou étiquettes assignés par les utilisateurs aux films, décrivant les thèmes ou caractéristiques.
 
-#traduction anglaise: 
+# Traduction anglaise: 
 
 Movies:
 Unique identifier of the movie.
