@@ -10,9 +10,13 @@ Présenter une démo notre logiciel
 Parler des 	
 
 ## Base de données 
+
+### Dernière base de données :
+https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?resource=download
+### Base 1
 https://grouplens.org/datasets/movielens/
 
-### database of IMDB:
+### Database of IMDB:
 https://datasets.imdbws.com/
 
 
@@ -72,5 +76,4 @@ ensuite process meta data—--> w2
 ponderation w1 et w2 pour donner une note finale 
 
 
-https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?resource=download
 
