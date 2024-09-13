@@ -12,7 +12,7 @@ Parler des
 ## Base de données 
 https://grouplens.org/datasets/movielens/
 
-## database of IMDB:
+### database of IMDB:
 https://datasets.imdbws.com/
 
 
@@ -34,7 +34,7 @@ Tags :
 
 Mots-clés ou étiquettes assignés par les utilisateurs aux films, décrivant les thèmes ou caractéristiques.
 
-## Traduction anglaise: 
+### Traduction anglaise: 
 
 Movies:
 Unique identifier of the movie.
