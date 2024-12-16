@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions de Films</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1.0">
+    <script src="/static/js/filters.js"></script>
+</head>
+<body>
+    <!-- Conteneur principal -->
+    <div class="container mt-5">
+        <h2 class="text-center">Suggestions de Films</h2>
+        <form method="post" action="/suggestions" class="mt-4">
+            <!-- Barre de recherche -->
+            <div class="mb-3">
+                <label for="filmSearch" class="form-label">Recherchez un film :</label>
+                <input type="text" id="filmSearch" name="film" class="form-control" list="filmList" placeholder="Tapez le titre d'un film..." required>
+                <datalist id="filmList"></datalist>
+            </div>
+
+            <!-- Nombre de recommandations -->
+            <div class="mb-3">
+                <label for="top_n" class="form-label">Nombre de recommandations :</label>
+                <input type="number" id="top_n" name="top_n" class="form-control" min="1" max="20" value="5">
+            </div>
+
+            <!-- Bouton pour afficher/masquer les filtres -->
+            <button type="button" class="btn btn-primary mb-3" onclick="toggleFilters()">Afficher les filtres</button>
+
+            <!-- Conteneur des filtres -->
+            <div id="filterContainer" class="filter-container" style="display: none;">
+                <!-- Filtre par genres -->
+                <div class="filter-item mb-3">
+                    <p onclick="toggleFilterMenu('genresMenu')" class="filter-toggle">Genres :</p>
+                    <div id="genresMenu" class="filter-menu row g-3"></div>
+                </div>
+
+                <!-- Filtre par collections -->
+                <div class="filter-item mb-3">
+                    <p onclick="toggleFilterMenu('collectionsMenu')" class="filter-toggle">Collections :</p>
+                    <div id="collectionsMenu" class="filter-menu">
+                        <input type="text" id="collectionsSearch" class="form-control mb-2" placeholder="Recherchez une collection...">
+                        <div id="collectionsList" class="row g-3"></div>
+                    </div>
+                </div>
+
+                <!-- Filtre par décennies -->
+                <div class="filter-item mb-3">
+                    <p onclick="toggleFilterMenu('decadesMenu')" class="filter-toggle">Décennies :</p>
+                    <div id="decadesMenu" class="filter-menu row g-3"></div>
+                </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="btn btn-primary w-100">Obtenir des recommandations</button>
+        </form>
+
+        <!-- Résultats des suggestions -->
+        {% if recommendations %}
+            <div class="mt-5">
+                <h3 class="text-center text-light">Films similaires à "{{ selected_film }}"</h3>
+                <ul class="list-group">
+                    {% for rec in recommendations %}
+                        <li class="list-group-item bg-dark text-light border-secondary mb-2 rounded">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="fw-bold">{{ rec.title }}</h5>
+                                    <p class="mb-1">{{ rec.genres }} ({{ rec.release_year }}, {{ rec.runtime }} min)</p>
+                                </div>
+                                <div>
+                                    <span class="badge bg-success me-1">Score total : {{ rec.score }}</span>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <div class="alert alert-warning text-center mt-4">
+                Aucune suggestion trouvée.
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
